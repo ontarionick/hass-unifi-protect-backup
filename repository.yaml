@@ -1,0 +1,4 @@
+# https://developers.home-assistant.io/docs/add-ons/repository#repository-configuration
+name: UniFi Protect Backup repository
+url: 'https://github.com/ontarionick/hass-unifi-protect-backup/blob/main/app'
+maintainer: Nick Evans <@ontarionick>

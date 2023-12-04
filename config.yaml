@@ -1,0 +1,7 @@
+name: "UniFi Protect Backup"
+description: "This addon runs the UniFi Protect Backup script in HASS."
+version: "0.1.0"
+slug: "unifi-protect-backup"
+init: false
+arch:
+  - aarch64

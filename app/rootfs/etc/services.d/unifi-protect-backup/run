@@ -4,7 +4,26 @@
 # s6-overlay docs: https://github.com/just-containers/s6-overlay
 # ==============================================================================
 
-bashio::log.info "Hello world"
+bashio::log.info "Starting UniFi Protect Backup"
 
-## Run your program
-exec unifi-protect-backup
+ip_address=$(bashio::config "ip_address")
+username=$(bashio::config "username")
+password=$(bashio::config "password")
+rclone_destination=$(bashio::config "rclone_destination")
+
+verify_ssl=$(bashio::config "verify_ssl")
+if [ "$verify_ssl" = "false" ]; then
+    verify_ssl="--no-verify-ssl"
+else
+    verify_ssl="--verify-ssl"
+fi
+
+extra_args=$(bashio::config "extra_args")
+
+unifi-protect-backup \
+    --address "$ip_address" \
+    --username "$username" \
+    --password "$password" \
+    --rclone-destination "$rclone_destination" \
+    $verify_ssl \
+    $extra_args

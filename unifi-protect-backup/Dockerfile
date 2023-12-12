@@ -1,4 +1,5 @@
-FROM ghcr.io/home-assistant/amd64-base:3.18
+ARG ARCH=amd64
+FROM ghcr.io/home-assistant/{ARCH}-base:3.18
 
 RUN apk add --no-cache --virtual .buildDeps \
     py3-pip \

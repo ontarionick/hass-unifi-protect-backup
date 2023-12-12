@@ -1,6 +1,6 @@
 name: "UniFi Protect Backup"
 description: "This addon runs the UniFi Protect Backup script in HASS."
-version: "0.1.3"
+version: "0.1.4"
 slug: "unifi-protect-backup"
 init: false
 arch: ["armhf", "armv7", "aarch64", "amd64", "i386"]
@@ -17,6 +17,8 @@ schema:
   username: str
   password: str
   rclone_destination: str
-  rclone_configuration: str
+  rclone_configuration:
+    - name: str
+      value: str
   verify_ssl: bool
   extra_args: str?

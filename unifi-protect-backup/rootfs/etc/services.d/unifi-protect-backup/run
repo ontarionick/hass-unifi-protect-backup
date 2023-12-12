@@ -13,7 +13,7 @@ rclone_destination=$(bashio::config "rclone_destination")
 rclone_configuration=$(bashio::config "rclone_configuration")
 
 rclone_config_file_path=$(rclone config file | cut -d ":" -f 2 | xargs)
-echo "$rclone_configuration" > "$rclone_config_file_path"
+echo "[remote]\n$rclone_configuration" > "$rclone_config_file_path"
 
 verify_ssl=$(bashio::config "verify_ssl")
 if [ "$verify_ssl" = "false" ]; then

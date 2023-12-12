@@ -9,6 +9,7 @@ options:
   username: ""
   password: ""
   rclone_destination: ""
+  rclone_configuration: ""
   verify_ssl: false
   extra_args: ""
 schema:
@@ -16,5 +17,6 @@ schema:
   username: str
   password: str
   rclone_destination: str
+  rclone_configuration: str
   verify_ssl: bool
   extra_args: str?

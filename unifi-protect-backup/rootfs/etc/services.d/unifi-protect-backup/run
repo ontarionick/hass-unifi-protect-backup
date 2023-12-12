@@ -9,6 +9,7 @@ bashio::log.info "Starting UniFi Protect Backup"
 ip_address=$(bashio::config "ip_address")
 username=$(bashio::config "username")
 password=$(bashio::config "password")
+retention=$(bashio::config "retention")
 rclone_destination=$(bashio::config "rclone_destination")
 rclone_configuration=$(bashio::config "rclone_configuration")
 
@@ -22,13 +23,22 @@ else
     verify_ssl="--verify-ssl"
 fi
 
+skip_missing=$(bashio::config "skip_missing")
+if [ "$skip_missing" = "true" ]; then
+    skip_missing="--skip-missing"
+else
+    skip_missing=""
+fi
+
 extra_args=$(bashio::config "extra_args")
 
 unifi-protect-backup \
     --address "$ip_address" \
     --username "$username" \
     --password "$password" \
+    --retention "$retention" \
     --rclone-destination "$rclone_destination" \
     --sqlite_path "/data/unifi_protect_backup.sqlite" \
     $verify_ssl \
+    $skip_missing \
     $extra_args

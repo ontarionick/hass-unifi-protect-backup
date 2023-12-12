@@ -29,5 +29,6 @@ unifi-protect-backup \
     --username "$username" \
     --password "$password" \
     --rclone-destination "$rclone_destination" \
+    --sqlite_path "/data/unifi_protect_backup.sqlite" \
     $verify_ssl \
     $extra_args
